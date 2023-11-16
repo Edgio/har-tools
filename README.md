@@ -75,11 +75,11 @@ While the doc does provide a half-hearted suggestion to use a sample list of key
 
 > HAR files may contain sensitive information such as authentication tokens, API keys, and session cookies. We recommend that you review the HAR file contents before adding them to a repository.
 
-Taken at face value, this recommendation sounds reasonable enough. But it ignores the widely accepted security maxim that there is a trade-off between convenience and security. Even for the responsible developer, this quote underlines the more fundamental problem of determining what exactly "sensitive information" means anyway. Sensitive information can tautologically be defined as information that hasn't been designated as non-sensitive.
+Taken at face value, this recommendation sounds reasonable enough. But it ignores the widely accepted security maxim that there is a trade-off between convenience and security. Even for the responsible developer, this quote underlines the more fundamental problem of determining what exactly "sensitive information" means anyway.
 
-Personally identifiable information can similarly be defined as information that can be used to personally identify the identity of a person. Not very useful. Another issue with current resources is that they rarely acknowledge HAR files can extend to thousands of lines of code. This makes manually examining their content wildly infeasible.
+Sensitive information can tautologically be defined as information that hasn't been designated as non-sensitive. Personally identifiable information can similarly be defined as information that can be used to personally identify the identity of a person. Not very useful. Another issue with current resources is that they rarely acknowledge HAR files can extend to thousands of lines of code.
 
-How should a developer audit any given HAR file and determine what's sensitive and what's not? This is the question HAR Tools is looking to answer.
+Since manually examining the contents of a HAR file is wildly infeasible, how should a developer audit any given HAR file and determine what's sensitive and what's not? This is the question HAR Tools is looking to answer.
 
 ## Resources
 
