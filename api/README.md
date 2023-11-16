@@ -1,17 +1,3 @@
-# HAR Tools API
-
-## Test Official API
-
-```bash
-jq '{"har": .}' < example.har | curl -X POST \
-  -H "Content-Type: application/json" \
-  -L --post301 \
-  --data @- \
-  api.har.tools > scrub.har
-```
-
-`-L` and `--post301` are necessary because right now `api.har.tools` redirects to `https://ajc-har-tools-api-default.glb.edgio.link/`.
-
 ## Local Development
 
 ```bash
