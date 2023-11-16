@@ -35,7 +35,7 @@ Originally developed by the W3C's Web Performance Working Group, HAR files were 
 >
 > Ilya Grigorik - [The HAR Show: Capturing and Analyzing performance data with HTTP Archive format]() (August 28, 2012)
 
-#### From abandoned spec to browser standard
+### From Abandoned Spec to Browser Standard
 
 Unfortunately, [the official spec](https://w3c.github.io/web-performance/specs/HAR/Overview.html) opens at the top with a large, bolded message highlighted in red which states:
 
@@ -49,7 +49,7 @@ Since browser vendors are responsible and ethical stewards of the web platform, 
 
 At least that's what happened in some lucky parallel universe. In the current universe, everyone kept using HAR files. It was even built into all the other popular web browsers. The security concerns were always known but mostly ignored until a [highly visible and embarrassing security incident](https://sec.okta.com/articles/2023/10/tracking-unauthorized-access-oktas-support-system) woke everyone up to the dangers.
 
-#### Why the heck is everyone using an abandoned format?
+### Why the Heck is Everyone Using an Abandoned Format?
 
 The designation **_DO NOT USE_** would suggest that HAR files are not ready for production and should not be used by anyone under any circumstances, especially not you 🫵. Which naturally leads to the question, why have we continued to rely on a discontinued format invented in 2012 to the extent that it leads to a [heavily](https://blog.1password.com/files/okta-incident/okta-incident-report.pdf) [publicized](https://www.beyondtrust.com/blog/entry/okta-support-unit-breach) [security](https://blog.cloudflare.com/how-cloudflare-mitigated-yet-another-okta-compromise/) [incident](https://sec.okta.com/harfiles) in 2023?
 
