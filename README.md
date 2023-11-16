@@ -19,7 +19,9 @@ If someone obtains the HAR file, they can see all the submitted information, whi
 >
 > _How rogue browsers and an abandoned standard highlighted the hidden risks of using the platform._
 
-![cover image](./client/public/cover.webp)
+<p align="center">
+  <img src="./client/public/cover.webp" width="600px" alt="cover image" />
+</p>
 
 ### HAR Files - How Did We Get Here?
 
@@ -41,7 +43,9 @@ Unfortunately, [the official spec](https://w3c.github.io/web-performance/specs/H
 
 Since browser vendors are responsible and ethical stewards of the web platform, they removed the ability to download HAR files and collaborated to develop a new and more appropriate specification.
 
-![wise guys](./client/public/wise-guys.webp)
+<p align="center">
+  <img src="./client/public/wise-guys.webp" alt="Gangsters from the movie Goodfellas laughing hysterically" width="300px" />
+</p>
 
 At least that's what happened in some lucky parallel universe. In the current universe, everyone kept using HAR files. It was even built into all the other popular web browsers. The security concerns were always known but mostly ignored until a [highly visible and embarrassing security incident](https://sec.okta.com/articles/2023/10/tracking-unauthorized-access-oktas-support-system) woke everyone up to the dangers.
 
