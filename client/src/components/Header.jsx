@@ -4,11 +4,11 @@ export const Header = () => {
       <div style={{display: "flex", alignItems: "center", justifyContent: "center", margin: "0", paddingTop: "20px"}}>
         <div style={{display: "flex", justifyContent: "space-between", alignItems: "center", width: "90%"}}>
           <h1 style={{ fontSize: "2.5em", padding: "5px", margin: "25px" }}>HAR Tools</h1>
-          <img src="./logo.webp" style={{padding: "5px", width: "150px", height: "63px"}} />
+          <a href="https://edg.io"><img src="./logo.webp" style={{padding: "5px", width: "150px", height: "63px"}} /></a>
         </div>
       </div>
       <p>
-        HAR Tools is a curated set of tools that aim to protect you from getting owned when sharing a HAR file.
+        <a href="https://github.com/edgio/har-tools">HAR Tools</a> is a curated set of tools that aim to protect you from getting owned when sharing a HAR file.
       </p>
       <h3>
         What are HAR files and what are the security concerns around them?
