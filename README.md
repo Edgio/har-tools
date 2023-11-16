@@ -75,6 +75,8 @@ While the doc does provide a half-hearted suggestion to use a sample list of key
 
 > HAR files may contain sensitive information such as authentication tokens, API keys, and session cookies. We recommend that you review the HAR file contents before adding them to a repository.
 
+### What even is sensitive information anyway?
+
 Taken at face value, this recommendation sounds reasonable enough. But it ignores the widely accepted security maxim that there is a trade-off between convenience and security. Even for the responsible developer, this quote underlines the more fundamental problem of determining what exactly "sensitive information" means anyway.
 
 Sensitive information can tautologically be defined as information that hasn't been designated as non-sensitive. Personally identifiable information can similarly be defined as information that can be used to personally identify the identity of a person. Not very useful.
