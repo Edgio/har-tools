@@ -1,0 +1,19 @@
+{
+  "name": "har-tools-api",
+  "description": "HAR Tools API",
+  "main": "app.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "edgio dev",
+    "start": "edgio dev",
+    "build": "edgio build",
+    "deploy": "edgio deploy"
+  },
+  "devDependencies": {
+    "@edgio/cli": "^7.2.2",
+    "@edgio/core": "^7.2.2",
+    "@edgio/devtools": "^7.2.2",
+    "@edgio/nodejs-connector": "^7.2.2",
+    "@edgio/prefetch": "^7.2.2"
+  }
+}

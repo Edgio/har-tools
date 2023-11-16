@@ -1,0 +1,33 @@
+{
+  "name": "har-tools",
+  "type": "module",
+  "scripts": {
+    "dev": "edgio dev",
+    "build": "edgio build",
+    "deploy": "edgio deploy"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@edgio/cli": "^7.4.0",
+    "@edgio/core": "^7.4.0",
+    "@edgio/nodejs-connector": "^7.4.0",
+    "@edgio/react-cra": "^7.4.0",
+    "@vitejs/plugin-react": "^4.0.3",
+    "vite": "^4.4.5"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

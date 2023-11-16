@@ -1,0 +1,7 @@
+.DS_Store
+node_modules
+.edgio
+.env
+edgio.har
+package-lock.json
+scrubbed.har
