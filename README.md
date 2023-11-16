@@ -5,6 +5,22 @@ HAR Tools is a curated set of tools that aim to protect you from getting owned w
 - [**Web Client**](/client/README.md) - Sanitize generated HAR files with client-side JavaScript logic using a hosted, drag and drop web application.
 - [**API**](/api/README.md) - Sanitize generated HAR files with a request to an endpoint.
 
+## Outline
+
+- [What is a HAR File?](#what-is-a-har-file)
+- [The Origins of HAR and How Everything Went Wrong](#the-origins-of-har-and-how-everything-went-wrong)
+  - [HAR Files - How Did We Get Here?](#har-files-how-did-we-get-here)
+  - [From Abandoned Spec to Browser Standard](#from-abandoned-spec-to-browser-standard)
+  - [Why the Heck is Everyone Using an Abandoned Format?](#why-the-heck-is-everyone-using-an-abandoned-format)
+  - [How Much is Security Emphasized in Existing Resources on HAR Files?](#how-much-is-security-emphasized-in-existing-resources-on-har-files)
+  - [What even is sensitive information anyway?](#what-even-is-sensitive-information-anyway)
+- [Resources](#resources)
+  - [Initial Development Period](#initial-development-period)
+  - [Devtools API Support](#devtools-api-support)
+  - [Okta Breach](#okta-breach)
+  - [HAR Documentation](#har-documentation)
+  - [Tooling](#tooling)
+
 ## What is a HAR File?
 
 HAR files (standing for HTTP Archive) are JSON-formatted archive files used to log web browser interactions. The HAR file format is employed by various HTTP session tools for exporting recorded data. In essence, it is a JSON object structured with specific fields. It's designed to archive HTTP transactions and allow browsers to export in-depth loading performance data.
