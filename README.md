@@ -78,7 +78,7 @@ Lets see what our pal ChatGPT has to say:
 
 Emphasis on the final comment is mine. It's a classic ChatGPT statement, the model makes a broad and highly questionable claim that rests on a naive assumption. In this answer, it is the assumption that people generally act responsibly and cautiously while performing tasks of consequence. Naturally, the AI's assumption that developers only use HAR files within controlled, safe environments is slightly divorced from reality in light of recent evidence.
 
-### How Much is Security Emphasized in Existing Resources on HAR Files?
+### How Much is Security Emphasized in Existing Resources?
 
 The developer-brain response to this dilemma is to include a warning somewhere in the documentation. Various versions of a disclaimer are included in documentation related to HAR files warning there will be sensitive and personally identifiable information contained in HAR files. Here's a few examples:
 
