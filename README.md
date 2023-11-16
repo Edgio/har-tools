@@ -9,11 +9,10 @@ HAR Tools is a curated set of tools that aim to protect you from getting owned w
 
 - [What is a HAR File?](#what-is-a-har-file)
 - [The Origins of HAR and How Everything Went Wrong](#the-origins-of-har-and-how-everything-went-wrong)
-  - [HAR Files - How Did We Get Here?](#har-files-how-did-we-get-here)
+  - [HAR Files - How Did We Get Here?](#har-files---how-did-we-get-here)
   - [From Abandoned Spec to Browser Standard](#from-abandoned-spec-to-browser-standard)
-  - [Why the Heck is Everyone Using an Abandoned Format?](#why-the-heck-is-everyone-using-an-abandoned-format)
-  - [How Much is Security Emphasized in Existing Resources on HAR Files?](#how-much-is-security-emphasized-in-existing-resources-on-har-files)
-  - [What even is sensitive information anyway?](#what-even-is-sensitive-information-anyway)
+  - [How Much is Security Emphasized in Existing Resources?](#how-much-is-security-emphasized-in-existing-resources)
+  - [What Even is Sensitive Information Anyway?](#what-even-is-sensitive-information-anyway)
 - [Resources](#resources)
   - [Initial Development Period](#initial-development-period)
   - [Devtools API Support](#devtools-api-support)
@@ -57,15 +56,15 @@ Unfortunately, [the official spec](https://w3c.github.io/web-performance/specs/H
 
 > **_DO NOT USE: This document was never published by the W3C Web Performance Working Group and has been abandoned._**
 
-Since browser vendors are responsible and ethical stewards of the web platform, they removed the ability to download HAR files and collaborated to develop a new and more appropriate specification.
+You may be wondering why the heck everyone is using an abandoned format. It seems like since browser vendors are responsible and ethical stewards of the web platform, they would remove the ability to download HAR files and collaborate to develop a new and more appropriate specification.
 
 <p align="center">
   <img src="./client/public/wise-guys.webp" alt="Gangsters from the movie Goodfellas laughing hysterically" width="300px" />
 </p>
 
-At least that's what happened in some lucky parallel universe. In the current universe, everyone kept using HAR files. It was even built into all the other popular web browsers. The security concerns were always known but mostly ignored until a [highly visible and embarrassing security incident](https://sec.okta.com/articles/2023/10/tracking-unauthorized-access-oktas-support-system) woke everyone up to the dangers.
+At least that's what would happen in some lucky parallel universe. In the current universe, everyone kept using HAR files. It was even built into all the other popular web browsers. The security concerns were always known but mostly ignored until a [highly visible and embarrassing security incident](https://sec.okta.com/articles/2023/10/tracking-unauthorized-access-oktas-support-system) woke everyone up to the dangers.
 
-### Why the Heck is Everyone Using an Abandoned Format?
+### 
 
 The designation **_DO NOT USE_** would suggest that HAR files are not ready for production and should not be used by anyone under any circumstances, especially not you 🫵. Which naturally leads to the question, why have we continued to rely on a discontinued format invented in 2012 to the extent that it leads to a [heavily](https://blog.1password.com/files/okta-incident/okta-incident-report.pdf) [publicized](https://www.beyondtrust.com/blog/entry/okta-support-unit-breach) [security](https://blog.cloudflare.com/how-cloudflare-mitigated-yet-another-okta-compromise/) [incident](https://sec.okta.com/harfiles) in 2023?
 
@@ -91,7 +90,7 @@ While the doc does provide a half-hearted suggestion to use a sample list of key
 
 > HAR files may contain sensitive information such as authentication tokens, API keys, and session cookies. We recommend that you review the HAR file contents before adding them to a repository.
 
-### What even is sensitive information anyway?
+### What Even is Sensitive Information Anyway?
 
 Taken at face value, this recommendation sounds reasonable enough. But it ignores the widely accepted security maxim that there is a trade-off between convenience and security. Even for the responsible developer, this quote underlines the more fundamental problem of determining what exactly "sensitive information" means anyway.
 
