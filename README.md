@@ -1,10 +1,9 @@
 # HAR Tools
 
-HAR Tools is a curated set of tools, scripts, and strategies that aim to protect you from getting owned when sharing a HAR file. There are three main pieces of HAR Tools:
+HAR Tools is a curated set of tools, scripts, and strategies that aim to protect you from getting owned when sharing a HAR file. There are two main pieces of HAR Tools:
 
 - [**Web Client**](/client/README.md) - Sanitize generated HAR files with client-side JavaScript logic using a hosted, drag and drop web application.
 - [**API**](/api/README.md) - Sanitize generated HAR files with a request to an endpoint.
-- [**Devtools**](/devtools/README.md) - Sanitize a HAR File before it is generated with Chrome Devtools API
 
 ## What is a HAR File?
 

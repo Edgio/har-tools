@@ -1,7 +1,0 @@
-{
-  "name": "HAR Tools Devtools",
-  "description": "Uses devtools.network.getHAR to generate a HAR file.",
-  "version": "1.0",
-  "manifest_version": 3,
-  "devtools_page": "devtools.html"
-}
