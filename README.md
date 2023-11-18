@@ -40,7 +40,7 @@ If someone obtains the HAR file, they can see all the submitted information, whi
 
 ### HAR Files - How Did We Get Here?
 
-Many users of the web (and even many who develop it) tend to view the platform a-historically. They assume the web has always been, and will always be, as exactly as it is and could be no other way. For example, while talking to a co-worker about building this project, I wondered aloud who invented HAR files and where they came from.
+Many users of the web (and even many who develop it) tend to view the platform a-historically. They assume the web has always been, and will always be, exactly as it is and could be no other way. For example, while talking to a co-worker about building this project, I wondered aloud who invented HAR files and where they came from.
 
 His answer was something to the effect of, "may as well ask who invented bread." Not satisfied with this answer, I dug into the question myself. I quickly discovered a official document from 2012 claiming to be the file's specification.
 
@@ -70,13 +70,13 @@ The designation **_DO NOT USE_** would suggest that HAR files are not ready for 
 
 Lets see what our pal ChatGPT has to say:
 
-> HAR files are widely used despite the spec being abandoned because, as a standardized format for recording HTTP transactions, they're very useful for developers. They enable the analysis of each element a webpage loads. This is a critical feature for debugging issues related to performance and application behavior. Since browsers and developer tools had already implemented the use of HAR for performance analysis, they continued to support it."
+> _HAR files are widely used despite the spec being abandoned because, as a standardized format for recording HTTP transactions, they're very useful for developers. They enable the analysis of each element a webpage loads. This is a critical feature for debugging issues related to performance and application behavior. Since browsers and developer tools had already implemented the use of HAR for performance analysis, they continued to support it._
 >
-> "Even though the formal specification process was not completed, the practical utility for developers in real-world troubleshooting and optimization outweighed the lack of an official standard. Moreover, there hasn't been a broadly accepted alternative matching the convenience and content provided by HAR files. The warning against using the format likely pertains to its security risks from containing sensitive data."
+> _Even though the formal specification process was not completed, the practical utility for developers in real-world troubleshooting and optimization outweighed the lack of an official standard. Moreover, there hasn't been a broadly accepted alternative matching the convenience and content provided by HAR files. The warning against using the format likely pertains to its security risks from containing sensitive data._
 >
-> **"However, developers mitigate this by using the format primarily in controlled environments and being cautious with the distribution of HAR files.**
+> ***However, developers mitigate this by using the format primarily in controlled environments and being cautious with the distribution of HAR files.***
 
-Emphasis on the final comment is mine. It's a classic ChatGPT statement, the model makes a broad and highly questionable claim that rests on a naive assumption. In this answer, it is the assumption that people generally act responsibly and cautiously while performing tasks of consequence. Naturally, the AI's assumption that developers only use HAR files within controlled, safe environments is slightly divorced from reality in light of recent evidence.
+Emphasis on the final comment is mine, which is a classic ChatGPT statement. The model makes a broad and highly questionable claim that rests on a naive assumption. In this answer, it's the assumption that people generally act responsibly and cautiously while performing tasks of consequence. Naturally, the AI's assumption that developers only use HAR files within controlled, safe environments is slightly divorced from reality in light of recent evidence.
 
 ### How Much is Security Emphasized in Existing Resources?
 
