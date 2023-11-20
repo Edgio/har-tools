@@ -88,6 +88,37 @@ server.on("request", async (req, res) => {
     ];
   }
 
+  function removeHeadersAndCookies(input, headersToRedact, cookiesToRedact) {
+    const harJSON = JSON.parse(input);
+    const entries = harJSON.log.entries;
+    if (!entries) {
+      throw new Error("failed to find entries in HAR file");
+    }
+    for (const entry of entries) {
+      entry.request.headers.forEach(header => {
+        if (headersToRedact.includes(header.name)) {
+          header.value = '[redacted]';
+        }
+      });
+      entry.response.headers.forEach(header => {
+        if (headersToRedact.includes(header.name)) {
+          header.value = '[redacted]';
+        }
+      });
+      entry.request.cookies.forEach(cookie => {
+        if (cookiesToRedact.includes(cookie.name)) {
+          cookie.value = '[redacted]';
+        }
+      });
+      entry.response.cookies.forEach(cookie => {
+        if (cookiesToRedact.includes(cookie.name)) {
+          cookie.value = '[redacted]';
+        }
+      });
+    }
+    return JSON.stringify(harJSON, null, 2);
+  }  
+
   function removeContentForMime(input, redactList) {
     const harJSON = JSON.parse(input);
     const entries = harJSON.log.entries;
@@ -167,30 +198,40 @@ server.on("request", async (req, res) => {
   }
 
   function sanitize(input, opt) {
-    let possibleRedact;
-    if (
-      opt?.allCookies ||
-      opt?.allHeaders ||
-      opt?.allMimeTypes ||
-      opt?.allQueryArgs ||
-      opt?.allPostParams
-    ) {
-      possibleRedact = getHarInfo(input);
-    }
-    input = removeContentForMime(input, getRedactedMime(opt, possibleRedact));
-    // console.log(input)
-    const wordList = getRedactedWords(opt, possibleRedact).filter((val) =>
-      input.includes(val),
-    );
-    const wordSpecificRedactList = wordList.map((word) => buildRegex(word));
-    const allRedactList = defaultRegex.concat(wordSpecificRedactList);
-
-    for (const redactList of allRedactList) {
-      for (const redact of redactList) {
-        input = input.replace(redact.regex, redact.replacement);
+    try {
+      let possibleRedact;
+      if (
+        opt?.allCookies ||
+        opt?.allHeaders ||
+        opt?.allMimeTypes ||
+        opt?.allQueryArgs ||
+        opt?.allPostParams
+      ) {
+        possibleRedact = getHarInfo(input);
       }
+      input = removeContentForMime(input, getRedactedMime(opt, possibleRedact));
+  
+      const headersToRedact = opt?.allHeaders ? [...possibleRedact.headers] : [];
+      const cookiesToRedact = opt?.allCookies ? [...possibleRedact.cookies] : [];
+  
+      input = removeHeadersAndCookies(input, headersToRedact, cookiesToRedact);
+  
+      const wordList = getRedactedWords(opt, possibleRedact).filter((val) =>
+        input.includes(val),
+      );
+      const wordSpecificRedactList = wordList.map((word) => buildRegex(word));
+      const allRedactList = defaultRegex.concat(wordSpecificRedactList);
+  
+      for (const redactList of allRedactList) {
+        for (const redact of redactList) {
+          input = input.replace(redact.regex, redact.replacement);
+        }
+      }
+      return input;
+    } catch (error) {
+      console.error("Error in sanitize function:", error);
+      throw error;
     }
-    return input;
   }
 
   const parsedUrl = url.parse(req.url, true);
@@ -206,18 +247,19 @@ server.on("request", async (req, res) => {
       req.on("end", () => {
         try {
           body = JSON.parse(body);
+          const options = {
+            redactWords: body.redactWords || [],
+            redactMimeTypes: body.redactMimeTypes || defaultMimeTypesList,
+            allCookies: body.allCookies || true,
+            allHeaders: body.allHeaders || true,
+            allMimeTypes: body.allMimeTypes || true,
+            allQueryArgs: body.allQueryArgs || true,
+            allPostParams: body.allPostParams || true,
+          };
           if (body.har) {
             try {
               const harInput = JSON.stringify(body.har, null, 2);
-              const redacted = sanitize(harInput, {
-                redactWords: body.words,
-                redactMimeTypes: body.mime_types,
-                allCookies: body.all_cookies,
-                allHeaders: body.all_headers,
-                allMimeTypes: body.all_mimetypes,
-                allQueryArgs: body.all_queryargs,
-                allPostParams: body.all_postparams,
-              });
+              const redacted = sanitize(harInput, options);
               res.end(JSON.stringify(JSON.parse(redacted), null, 2));
             } catch (e) {
               console.error(e);
@@ -227,15 +269,7 @@ server.on("request", async (req, res) => {
           } else if (!body.har) {
             try {
               const harInput = JSON.stringify(body, null, 2);
-              const redacted = sanitize(harInput, {
-                redactWords: body.words,
-                redactMimeTypes: body.mime_types,
-                allCookies: body.all_cookies,
-                allHeaders: body.all_headers,
-                allMimeTypes: body.all_mimetypes,
-                allQueryArgs: body.all_queryargs,
-                allPostParams: body.all_postparams,
-              });
+              const redacted = sanitize(harInput, options);
               res.end(JSON.stringify(JSON.parse(redacted), null, 2));
             } catch (e) {
               console.error(e);

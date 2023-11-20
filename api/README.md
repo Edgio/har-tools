@@ -31,3 +31,21 @@ curl -X POST \
 ```bash
 npm run deploy
 ```
+
+## Use Hosted API
+
+```bash
+jq '{"har": .}' < example.har | curl -X POST \
+  -H "Content-Type: application/json" \
+  -L --post301 \
+  --data @- \
+  api.har.tools > scrub.har
+```
+
+```bash
+curl -X POST \
+  -H "Content-Type: application/json" \
+  -L --post301 \
+  --data @example-har.json \
+  api.har.tools > scrub.json
+```
